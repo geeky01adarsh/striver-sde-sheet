@@ -2,10 +2,10 @@ class Solution {
 public:
     int findDuplicate(vector<int>& nums) {
         int n=nums.size();
-        set<int> st;
+        vector<int> arr(n+1, 0);
         for(int i=0; i<n; i++){
-            if(st.count(nums[i])) return nums[i];
-            st.insert(nums[i]);
+            if(arr[nums[i]]) return nums[i];
+            arr[nums[i]] = 1;
         }
         return -1;
     }
